@@ -10,12 +10,19 @@ public class calculadoraDeSalario {
         Scanner input = new Scanner(System.in);
         try {
             System.out.println("---- Por favor, ingrese los siguientes datos ----");
-            System.out.println("Indique cantidad de horas semanales trabajadas: ");
-            horasSemanales = input.nextInt();
-            System.out.println("Indique el valor de hora de trabajo: ");
-            valorHora = input.nextDouble();
-            System.out.println("Indique cuantos días de vacaciones se tomó: ");
-            diasVacacionesTomadas = input.nextInt();
+            do {
+                System.out.println("Indique cantidad de horas semanales trabajadas: ");
+                horasSemanales = input.nextInt();
+            }while (horasSemanales < 0);
+            do {
+                System.out.println("Indique el valor de hora de trabajo: ");
+                valorHora = input.nextDouble();
+            }while (valorHora < 0);
+
+            do {
+                System.out.println("Indique cuantos días de vacaciones se tomó: ");
+                diasVacacionesTomadas = input.nextInt();
+            }while (diasVacacionesTomadas < 0);
 
             salarioAnual = (((horasSemanales * valorHora)*4)*12) - (diasVacacionesTomadas*8*valorHora);
 
